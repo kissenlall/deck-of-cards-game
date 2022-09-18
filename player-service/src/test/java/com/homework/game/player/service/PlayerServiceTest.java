@@ -1,7 +1,6 @@
 package com.homework.game.player.service;
 
 import com.homework.game.player.model.CardPlayer;
-import com.homework.game.player.model.Player;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,14 +18,13 @@ class PlayerServiceTest {
 
         //When
 
-        Player actualPlayer = service.createCardPlayer();
+        CardPlayer actualPlayer = service.createCardPlayer();
 
         //Then
 
         assertNotNull(actualPlayer);
         assertNotNull(actualPlayer.getId());
-        assertTrue(actualPlayer instanceof CardPlayer);
-        assertTrue(((CardPlayer) actualPlayer).getHand().isEmpty());
+        assertTrue(actualPlayer.getHand().isEmpty());
     }
 
 }

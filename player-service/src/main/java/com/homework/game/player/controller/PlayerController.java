@@ -1,6 +1,6 @@
 package com.homework.game.player.controller;
 
-import com.homework.game.player.model.Player;
+import com.homework.game.player.model.CardPlayer;
 import com.homework.game.player.service.PlayerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class PlayerController {
 
     @GetMapping(value = "/player", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Player createCardPlayer() {
+    public CardPlayer createCardPlayer() {
         return service.createCardPlayer();
     }
 }

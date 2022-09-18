@@ -7,5 +7,5 @@ import java.util.List;
 @Value
 public class Deck {
    String id;
-   List<AbstractCard> cards;
+   List<Card> cards;
 }

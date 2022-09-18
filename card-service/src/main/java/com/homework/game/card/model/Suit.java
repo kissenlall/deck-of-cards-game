@@ -1,4 +1,4 @@
-package com.homework.game.card.model.playingcard;
+package com.homework.game.card.model;
 
 public enum Suit {
 

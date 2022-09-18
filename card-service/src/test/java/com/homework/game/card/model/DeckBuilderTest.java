@@ -1,8 +1,5 @@
 package com.homework.game.card.model;
 
-import com.homework.game.card.model.playingcard.Card;
-import com.homework.game.card.model.playingcard.Rank;
-import com.homework.game.card.model.playingcard.Suit;
 import com.homework.game.card.util.DeckBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -33,7 +30,7 @@ class DeckBuilderTest {
     }
 
     private Deck expectedDeck() {
-        List<AbstractCard> cards = new ArrayList<>();
+        List<Card> cards = new ArrayList<>();
 
         cards.add(new Card(Rank.ACE, Suit.HEART));
         cards.add(new Card(Rank.ACE, Suit.SPADE));

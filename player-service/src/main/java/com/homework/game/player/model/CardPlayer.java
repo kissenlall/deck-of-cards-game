@@ -1,6 +1,6 @@
 package com.homework.game.player.model;
 
-import com.homework.game.card.model.AbstractCard;
+import com.homework.game.card.model.Card;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.UUID;
 @Getter
 public class CardPlayer extends Player {
 
-    private final List<AbstractCard> hand;
+    private final List<Card> hand;
 
     public CardPlayer() {
         super(UUID.randomUUID().toString());

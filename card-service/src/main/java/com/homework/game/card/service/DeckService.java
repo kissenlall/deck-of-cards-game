@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
 @Service
-public class PlayingCardService {
+public class DeckService {
 
     private final DeckBuilder deckBuilder;
 
     //TODO: persist deck of cards?
 
-    public Deck getDeckOfPlayingCards() {
+    public Deck createDeckOfPlayingCards() {
         return deckBuilder.buildPlayingCardsDeck();
     }
 }

@@ -25,7 +25,7 @@ class PlayerControllerTest {
 
         //Given
 
-        Player player = new CardPlayer();
+        CardPlayer player = new CardPlayer();
         Mockito.when(service.createCardPlayer()).thenReturn(player);
 
         //When

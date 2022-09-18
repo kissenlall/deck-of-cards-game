@@ -17,8 +17,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>player-service</module>
         <module>card-service</module>
+        <module>player-service</module>
         <module>game-service</module>
     </modules>
 

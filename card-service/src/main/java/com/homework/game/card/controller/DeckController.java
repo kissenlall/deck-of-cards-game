@@ -1,7 +1,7 @@
 package com.homework.game.card.controller;
 
 import com.homework.game.card.model.Deck;
-import com.homework.game.card.service.PlayingCardService;
+import com.homework.game.card.service.DeckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-public class PlayingCardController {
+public class DeckController {
 
-    private final PlayingCardService service;
+    private final DeckService service;
 
-    @GetMapping(value = "/playing-cards/deck", produces = "application/json")
-    @ResponseStatus( HttpStatus.OK )
-    public Deck getDeckOfPlayingCards() {
-        return service.getDeckOfPlayingCards();
+    @GetMapping(value = "/deck/playing-cards", produces = "application/json")
+    @ResponseStatus( HttpStatus.CREATED )
+    public Deck createDeckOfPlayingCards() {
+        return service.createDeckOfPlayingCards();
     }
 }

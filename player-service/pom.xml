@@ -53,7 +53,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.homework.game.card.CardServiceApplication</mainClass>
+                    <mainClass>com.homework.game.player.PlayerServiceApplication</mainClass>
                     <layout>JAR</layout>
                     <excludes>
                         <exclude>
