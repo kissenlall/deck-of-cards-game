@@ -1,4 +1,4 @@
-package com.homework.game.card.serializer;
+package com.homework.game.card.model.serializer;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

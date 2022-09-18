@@ -2,7 +2,7 @@ package com.homework.game.card.model.playingcard;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.homework.game.card.model.AbstractCard;
-import com.homework.game.card.serializer.PlayingCardSerializer;
+import com.homework.game.card.model.serializer.PlayingCardSerializer;
 import lombok.Value;
 
 @Value

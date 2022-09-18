@@ -1,5 +1,7 @@
-package com.homework.game.card.model;
+package com.homework.game.card.util;
 
+import com.homework.game.card.model.AbstractCard;
+import com.homework.game.card.model.Deck;
 import com.homework.game.card.model.playingcard.Card;
 import com.homework.game.card.model.playingcard.Rank;
 import com.homework.game.card.model.playingcard.Suit;

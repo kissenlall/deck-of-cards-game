@@ -1,7 +1,7 @@
 package com.homework.game.card.service;
 
 import com.homework.game.card.model.Deck;
-import com.homework.game.card.model.DeckBuilder;
+import com.homework.game.card.util.DeckBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

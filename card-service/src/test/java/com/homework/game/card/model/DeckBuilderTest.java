@@ -3,6 +3,7 @@ package com.homework.game.card.model;
 import com.homework.game.card.model.playingcard.Card;
 import com.homework.game.card.model.playingcard.Rank;
 import com.homework.game.card.model.playingcard.Suit;
+import com.homework.game.card.util.DeckBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

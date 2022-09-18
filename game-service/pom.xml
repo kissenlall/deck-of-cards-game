@@ -11,5 +11,14 @@
 
     <artifactId>game-service</artifactId>
 
+    <dependencies>
+        <dependency>
+            <artifactId>card-service</artifactId>
+            <groupId>com.homework</groupId>
+            <version>1.0-SNAPSHOT</version>
+            <classifier>model</classifier>
+        </dependency>
+    </dependencies>
+
 
 </project>

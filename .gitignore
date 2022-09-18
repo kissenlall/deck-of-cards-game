@@ -3,3 +3,5 @@
 /card-service/target/
 /game-service/target/
 /card-service/logs/
+/player-service/logs/
+/logs/
