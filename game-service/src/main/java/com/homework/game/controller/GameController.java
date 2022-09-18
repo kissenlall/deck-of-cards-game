@@ -1,11 +1,16 @@
 package com.homework.game.controller;
 
 import com.homework.game.card.model.Deck;
+import com.homework.game.enums.Grouping;
 import com.homework.game.model.Game;
+import com.homework.game.player.model.CardPlayer;
 import com.homework.game.service.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @RestController
@@ -37,40 +42,45 @@ public class GameController {
         return service.addDeckToGame(gameId, deck);
     }
 
+    @PatchMapping(value = "/game/{gameId}/player", produces = "application/json")
+    @ResponseStatus( HttpStatus.OK )
+    public Game addGamePlayer(@PathVariable String gameId, @RequestBody CardPlayer player) {
+        return service.addPlayerToGame(gameId, player);
+    }
+
     @PatchMapping(value = "/game/{gameId}/player/{playerId}", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game addRemoveGamePlayer(@PathVariable String gameId, @PathVariable String playerId, @RequestParam String action) {
-        return null;
+    public Game removeGamePlayer(@PathVariable String gameId, @PathVariable String playerId) {
+        return service.removePlayer(gameId, playerId);
     }
 
     @PatchMapping(value = "/game/{gameId}/deal", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
     public Game dealCards(@PathVariable String gameId) {
-        return null;
+        return service.deal(gameId);
     }
 
     @PatchMapping(value = "/game/{gameId}/shuffle", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
     public Game shuffleCards(@PathVariable String gameId) {
-        return null;
+        return service.shuffle(gameId);
     }
 
     @GetMapping(value = "/game/{gameId}/player/{playerId}/cards", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game getPlayerCards(@PathVariable String gameId, @PathVariable String playerId) {
-        return null;
+    public List<String> getPlayerCards(@PathVariable String gameId, @PathVariable String playerId) {
+        return service.getPlayerCards(gameId, playerId);
     }
 
     @GetMapping(value = "/game/{gameId}/result", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game getGameResult(@PathVariable String gameId) {
-        return null;
+    public Map<String, Integer> getGameResult(@PathVariable String gameId) {
+        return service.getResult(gameId);
     }
 
-    @GetMapping(value = "/game/{gameId}/deck/cards", produces = "application/json")
+    @GetMapping(value = "/game/{gameId}/deck/remaining-cards", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game getGameCards(@PathVariable String gameId, @RequestParam String group) {
-        return null;
+    public Map<String, Long> getRemainingGameCards(@PathVariable String gameId, @RequestParam Grouping grouping) {
+        return service.getRemainingCardsCount(gameId, grouping);
     }
-
 }

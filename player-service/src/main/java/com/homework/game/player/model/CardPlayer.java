@@ -17,4 +17,7 @@ public class CardPlayer extends Player {
         hand = new ArrayList<>();
     }
 
+    public int calculateTotal() {
+        return hand.stream().mapToInt(c -> c.getRank().getValue()).sum();
+    }
 }

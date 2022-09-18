@@ -1,9 +1,6 @@
 package com.homework.game.card.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @RequiredArgsConstructor
 @Getter
@@ -12,4 +9,7 @@ import lombok.ToString;
 public class Card {
     private final Rank rank;
     private final Suit suit;
+
+    @Setter
+    private boolean dealt = false;
 }
