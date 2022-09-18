@@ -11,6 +11,8 @@ public class PlayingCardService {
 
     private final DeckBuilder deckBuilder;
 
+    //TODO: persist deck of cards?
+
     public Deck getDeckOfPlayingCards() {
         return deckBuilder.buildPlayingCardsDeck();
     }

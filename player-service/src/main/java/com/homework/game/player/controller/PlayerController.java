@@ -16,7 +16,7 @@ public class PlayerController {
 
     @GetMapping(value = "/player", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Player createPlayer() {
-        return service.createPlayer();
+    public Player createCardPlayer() {
+        return service.createCardPlayer();
     }
 }

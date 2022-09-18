@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class PlayerService {
 
-    public Player createPlayer() {
+    //TODO: persist player?
+
+    public Player createCardPlayer() {
         return new CardPlayer();
     }
 }
