@@ -1,6 +1,7 @@
 package com.homework.game.card.model;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public enum Rank {
 
@@ -34,9 +35,18 @@ public enum Rank {
         return description;
     }
 
+    //utility
+
     public static Rank fromValue(int value) {
         return Arrays.stream(Rank.values())
                 .filter(rank -> rank.value == value)
+                .findFirst()
+                .orElse(null);
+    }
+
+    public static Rank fromDescription(String description) {
+        return Arrays.stream(Rank.values())
+                .filter(rank -> Objects.equals(rank.description, description))
                 .findFirst()
                 .orElse(null);
     }

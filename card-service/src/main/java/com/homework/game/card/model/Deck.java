@@ -1,11 +1,16 @@
 package com.homework.game.card.model;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
-@Value
-public class Deck {
-   String id;
-   List<Card> cards;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Deck implements Serializable {
+   private String id;
+   private List<Card> cards;
 }

@@ -1,4 +1,4 @@
-package com.homework.game.card.util;
+package com.homework.game.card.utility;
 
 import com.homework.game.card.model.Deck;
 import com.homework.game.card.model.Card;
@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Slf4j
 @Component
 public class DeckBuilder {
 
@@ -19,10 +18,9 @@ public class DeckBuilder {
         List<Card> cards = new ArrayList<>(52);
         for(int value = 1 ; value <= 13 ; value++){
             for(Suit suit : Suit.values()){
-                cards.add(new Card(Rank.fromValue(value),suit));
+                cards.add(new Card(Rank.fromValue(value),suit, false));
             }
         }
-        log.info("Creating deck with : [{}]", cards);
         return new Deck(UUID.randomUUID().toString(), cards);
     }
 }

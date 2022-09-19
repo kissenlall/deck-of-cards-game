@@ -1,5 +1,6 @@
 package com.homework.game.card.controller;
 
+import com.homework.game.card.dto.DeckDto;
 import com.homework.game.card.model.Deck;
 import com.homework.game.card.service.DeckService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,7 +28,7 @@ public class DeckController {
     })
     @PostMapping(value = "/deck/playing-cards", produces = "application/json")
     @ResponseStatus( HttpStatus.CREATED )
-    public Deck createDeckOfPlayingCards() {
+    public DeckDto createDeckOfPlayingCards() {
         return service.createDeckOfPlayingCards();
     }
 }

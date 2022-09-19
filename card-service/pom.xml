@@ -78,6 +78,8 @@
                             <classifier>model</classifier>
                             <includes>
                                 <include>**/model/*</include>
+                                <include>**/dto/*</include>
+                                <include>**/utility/*</include>
                             </includes>
                         </configuration>
                     </execution>

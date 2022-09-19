@@ -1,8 +1,11 @@
 package com.homework.game.controller;
 
+import com.homework.game.card.dto.DeckDto;
 import com.homework.game.card.model.Deck;
+import com.homework.game.dto.GameDto;
 import com.homework.game.enums.Grouping;
 import com.homework.game.model.Game;
+import com.homework.game.player.dto.CardPlayerDto;
 import com.homework.game.player.model.CardPlayer;
 import com.homework.game.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,7 +13,6 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -31,17 +33,11 @@ public class GameController {
      *
      * @return created instance of the game
      */
-    @Operation(
-            summary = "Create new game."
-//            security = {
-//                    @SecurityRequirement(name = "BasicAuthentication"),
-//                    @SecurityRequirement(name = "Bearer")
-//            }
-    )
+    @Operation(summary = "Create new game.")
     @ApiResponses(value = {@ApiResponse(responseCode = "201", description = "Created new game.",content = {@Content(mediaType = "application/json",schema = @Schema(implementation = Game.class))})})
     @PostMapping(value = "/game", produces = "application/json")
     @ResponseStatus( HttpStatus.CREATED )
-    public Game createGame() {
+    public GameDto createGame() {
         return service.createGame();
     }
 
@@ -76,7 +72,7 @@ public class GameController {
     })
     @PatchMapping(value = "/game/{gameId}/deck", produces = "application/json", consumes = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game addDeckToGame(@PathVariable String gameId, @RequestBody Deck deck) {
+    public GameDto addDeckToGame(@PathVariable String gameId, @RequestBody DeckDto deck) {
         return service.addDeckToGame(gameId, deck);
     }
 
@@ -95,7 +91,7 @@ public class GameController {
     })
     @PatchMapping(value = "/game/{gameId}/player", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game addPlayerToGame(@PathVariable String gameId, @RequestBody CardPlayer player) {
+    public GameDto addPlayerToGame(@PathVariable String gameId, @RequestBody CardPlayerDto player) {
         return service.addPlayerToGame(gameId, player);
     }
 
@@ -113,7 +109,7 @@ public class GameController {
     })
     @PatchMapping(value = "/game/{gameId}/player/{playerId}", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game removePlayerFromGame(@PathVariable String gameId, @PathVariable String playerId) {
+    public GameDto removePlayerFromGame(@PathVariable String gameId, @PathVariable String playerId) {
         return service.removePlayer(gameId, playerId);
     }
 
@@ -132,7 +128,7 @@ public class GameController {
     })
     @PutMapping(value = "/game/{gameId}/deal", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game dealCards(@PathVariable String gameId) {
+    public GameDto dealCards(@PathVariable String gameId) {
         return service.dealCards(gameId);
     }
 
@@ -150,7 +146,7 @@ public class GameController {
     })
     @PutMapping(value = "/game/{gameId}/shuffle", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public Game shuffleCards(@PathVariable String gameId) {
+    public GameDto shuffleCards(@PathVariable String gameId) {
         return service.shuffleCards(gameId);
     }
 

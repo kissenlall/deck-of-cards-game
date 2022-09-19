@@ -1,5 +1,6 @@
 package com.homework.game.player.controller;
 
+import com.homework.game.player.dto.CardPlayerDto;
 import com.homework.game.player.model.CardPlayer;
 import com.homework.game.player.service.PlayerService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,7 +23,7 @@ public class PlayerController {
     })
     @PostMapping(value = "/player", produces = "application/json")
     @ResponseStatus( HttpStatus.OK )
-    public CardPlayer createCardPlayer() {
+    public CardPlayerDto createCardPlayer() {
         return service.createCardPlayer();
     }
 }

@@ -1,23 +1,25 @@
 package com.homework.game.player.model;
 
 import com.homework.game.card.model.Card;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-@Getter
-public class CardPlayer extends Player {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CardPlayer implements Serializable {
 
-    private final List<Card> hand;
+    private String id;
+    private List<Card> hand = new ArrayList<>();
 
-    public CardPlayer() {
-        super(UUID.randomUUID().toString());
-        hand = new ArrayList<>();
-    }
+    //utility
 
     public int calculateTotal() {
-        return hand.stream().mapToInt(c -> c.getRank().getValue()).sum();
+        return hand != null ? hand.stream().mapToInt(c -> c.getRank().getValue()).sum() : 0;
     }
 }

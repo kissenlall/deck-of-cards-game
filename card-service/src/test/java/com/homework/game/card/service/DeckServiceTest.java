@@ -1,10 +1,12 @@
 package com.homework.game.card.service;
 
+import com.homework.game.card.dto.DeckDto;
 import com.homework.game.card.model.Deck;
-import com.homework.game.card.util.DeckBuilder;
+import com.homework.game.card.utility.DeckBuilder;
 import com.homework.game.card.model.Card;
 import com.homework.game.card.model.Rank;
 import com.homework.game.card.model.Suit;
+import com.homework.game.card.utility.DeckToDtoMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,6 +24,9 @@ class DeckServiceTest {
     @Mock
     private DeckBuilder deckBuilder;
 
+    @Mock
+    private DeckToDtoMapper deckToDtoMapper;
+
     @InjectMocks
     private DeckService service;
 
@@ -30,15 +35,18 @@ class DeckServiceTest {
 
         //Given
 
-        Deck deck = new Deck(UUID.randomUUID().toString(), Collections.singletonList(new Card(Rank.SEVEN, Suit.CLUB)));
+        Deck deck = new Deck(UUID.randomUUID().toString(), Collections.singletonList(new Card(Rank.ACE, Suit.HEART, false)));
         Mockito.when(deckBuilder.buildPlayingCardsDeck()).thenReturn(deck);
+
+        DeckDto deckDto = new DeckDto(UUID.randomUUID().toString(), Collections.singletonList("[A|♡]"));
+        Mockito.when(deckToDtoMapper.convert(deck)).thenReturn(deckDto);
 
         //When
 
-        Deck actualDeck = service.createDeckOfPlayingCards();
+        DeckDto actualDeck = service.createDeckOfPlayingCards();
 
         //Then
 
-        Assertions.assertEquals(deck, actualDeck);
+        Assertions.assertEquals(deckDto, actualDeck);
     }
 }

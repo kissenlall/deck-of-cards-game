@@ -1,8 +1,11 @@
 package com.homework.game.controller;
 
+import com.homework.game.card.dto.DeckDto;
 import com.homework.game.card.model.Deck;
+import com.homework.game.dto.GameDto;
 import com.homework.game.enums.Grouping;
 import com.homework.game.model.Game;
+import com.homework.game.player.dto.CardPlayerDto;
 import com.homework.game.player.model.CardPlayer;
 import com.homework.game.service.GameService;
 import org.junit.jupiter.api.Assertions;
@@ -32,12 +35,12 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
+        GameDto expectedGame = new GameDto(null, null, null, null);
         Mockito.when(service.createGame()).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.createGame();
+        GameDto actualGame = controller.createGame();
 
         //Then
 
@@ -65,14 +68,14 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
-        Deck deck = new Deck(null, null);
+        GameDto expectedGame = new GameDto(null, null, null, null);
+        DeckDto deck = new DeckDto(null, null);
 
         Mockito.when(service.addDeckToGame("id", deck)).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.addDeckToGame("id", deck);
+        GameDto actualGame = controller.addDeckToGame("id", deck);
 
         //Then
 
@@ -84,14 +87,14 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
-        CardPlayer player = new CardPlayer();
+        GameDto expectedGame = new GameDto(null, null, null, null);
+        CardPlayerDto player = new CardPlayerDto(null, null);
 
         Mockito.when(service.addPlayerToGame("id", player)).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.addPlayerToGame("id", player);
+        GameDto actualGame = controller.addPlayerToGame("id", player);
 
         //Then
 
@@ -103,13 +106,13 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
+        GameDto expectedGame = new GameDto(null, null, null, null);
 
         Mockito.when(service.removePlayer("id", "playerId")).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.removePlayerFromGame("id", "playerId");
+        GameDto actualGame = controller.removePlayerFromGame("id", "playerId");
 
         //Then
 
@@ -121,13 +124,13 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
+        GameDto expectedGame = new GameDto(null, null, null, null);
 
         Mockito.when(service.dealCards("id")).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.dealCards("id");
+        GameDto actualGame = controller.dealCards("id");
 
         //Then
 
@@ -139,13 +142,13 @@ class GameControllerTest {
 
         //Given
 
-        Game expectedGame = new Game(null, null, null);
+        GameDto expectedGame = new GameDto(null, null, null, null);
 
         Mockito.when(service.shuffleCards("id")).thenReturn(expectedGame);
 
         //When
 
-        Game actualGame = controller.shuffleCards("id");
+        GameDto actualGame = controller.shuffleCards("id");
 
         //Then
 

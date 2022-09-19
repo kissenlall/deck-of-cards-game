@@ -1,9 +1,6 @@
 package com.homework.game.card.controller;
 
-import com.homework.game.card.model.Deck;
-import com.homework.game.card.model.Card;
-import com.homework.game.card.model.Rank;
-import com.homework.game.card.model.Suit;
+import com.homework.game.card.dto.DeckDto;
 import com.homework.game.card.service.DeckService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,12 +27,12 @@ class DeckControllerTest {
 
         //Given
 
-        Deck deck = new Deck(UUID.randomUUID().toString(), Collections.singletonList(new Card(Rank.SEVEN, Suit.CLUB)));
+        DeckDto deck = new DeckDto(UUID.randomUUID().toString(), Collections.singletonList("[A|♡]"));
         Mockito.when(service.createDeckOfPlayingCards()).thenReturn(deck);
 
         //When
 
-        Deck actualDeck = controller.createDeckOfPlayingCards();
+        DeckDto actualDeck = controller.createDeckOfPlayingCards();
 
         //Then
 
