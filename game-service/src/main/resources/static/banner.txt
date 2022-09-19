@@ -1,0 +1,23 @@
+
+${AnsiColor.RED}.------.${AnsiColor.BLUE} .------.
+${AnsiColor.RED}|A.--. |${AnsiColor.BLUE} |K.--. |
+${AnsiColor.RED}| (\/) |${AnsiColor.BLUE} | (\/) |
+${AnsiColor.RED}| :\/: |${AnsiColor.BLUE} | :\/: |
+${AnsiColor.RED}| '--'A|${AnsiColor.BLUE} | '--'K|
+${AnsiColor.RED}`------'${AnsiColor.BLUE} `------'
+${AnsiColor.DEFAULT}
+
+${AnsiColor.BRIGHT_YELLOW}
+,---.           .        ,---.
+|  -' ,-. ,-. ,-| ,-.    |  -'  ,-. ,-,-. ,-.
+|  -. ,-| |   | | `-.    |  ,-' ,-| | | | |-'
+`---' `-^ '   `-' `-'    `---|  `-^ ' ' ' `-'
+                          ,-.|
+                          `-+'
+${AnsiColor.DEFAULT}
+
+ ${AnsiColor.BRIGHT_MAGENTA}
+ Application Name: ${application.name}
+ Application Version: ${application.version}
+ ${AnsiColor.RED} :: Spring Boot ${spring-boot.formatted-version} :: ${AnsiColor.RED}
+ ${AnsiColor.GREEN} :: Active Profile ${spring.profiles.active} :: ${AnsiColor.GREEN}

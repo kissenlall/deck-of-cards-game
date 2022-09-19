@@ -28,13 +28,6 @@ public class GameService {
         return game;
     }
 
-    public Game getGame(String gameId) {
-        if(!games.containsKey(gameId)){
-            throw new NotFoundException(String.format("could not find game [%s]", gameId));
-        }
-        return games.get(gameId);
-    }
-
     public void deleteGame(String gameId) {
         if(!games.containsKey(gameId)){
             throw new NotFoundException(String.format("could not find game [%s]", gameId));
@@ -78,7 +71,7 @@ public class GameService {
         return game;
     }
 
-    public Game deal(String gameId) {
+    public Game dealCards(String gameId) {
         if(!games.containsKey(gameId)){
             throw new NotFoundException(String.format("could not find game [%s]", gameId));
         }
@@ -87,7 +80,7 @@ public class GameService {
         return game;
     }
 
-    public Game shuffle(String gameId) {
+    public Game shuffleCards(String gameId) {
         if(!games.containsKey(gameId)){
             throw new NotFoundException(String.format("could not find game [%s]", gameId));
         }
@@ -97,7 +90,9 @@ public class GameService {
     }
 
     public List<String> getPlayerCards(String gameId, String playerId) {
-        verifyGameExists(gameId);
+        if(!games.containsKey(gameId)){
+            throw new NotFoundException(String.format("could not find game [%s]", gameId));
+        }
         Game game = games.get(gameId);
         if(!game.getPlayers().containsKey(playerId)) {
             throw new NotFoundException(String.format("could not find player [%s] in game [%s]", playerId, gameId));
@@ -106,12 +101,6 @@ public class GameService {
                 .stream()
                 .map(h -> String.format("%s%s", h.getRank().getDescription(), h.getSuit().getValue()))
                 .collect(Collectors.toList());
-    }
-
-    private void verifyGameExists(String gameId) {
-        if(!games.containsKey(gameId)){
-            throw new NotFoundException(String.format("could not find game [%s]", gameId));
-        }
     }
 
     public Map<String, Integer> getResult(String gameId) {

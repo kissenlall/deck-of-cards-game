@@ -5,14 +5,12 @@ import com.homework.game.card.model.Deck;
 import com.homework.game.card.model.Rank;
 import com.homework.game.card.model.Suit;
 import com.homework.game.player.model.CardPlayer;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Slf4j
 class GameTest {
 
     private Game game;
