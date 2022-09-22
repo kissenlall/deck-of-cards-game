@@ -1,5 +1,7 @@
 # Deck of Cards Game (GoTo Homework)
 
+[![Java CI with Maven](https://github.com/kissenlall/deck-of-cards-game/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/kissenlall/deck-of-cards-game/actions/workflows/maven.yml)
+
 ## Requirements
 
 - Implement basic deck of cards game REST api.
