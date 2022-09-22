@@ -97,7 +97,7 @@
     </dependencies>
 
     <build>
-        <finalName>game-service</finalName>
+        <finalName>card-game-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -113,8 +113,39 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.1.4</version>
+                <configuration>
+                    <to>
+                        <image>game-service</image>
+                    </to>
+                    <container>
+                        <entrypoint>
+                            <shell>bash</shell>
+                            <option>-c</option>
+                            <arg>/entrypoint.sh</arg>
+                        </entrypoint>
+                        <ports>
+                            <port>8083</port>
+                        </ports>
+                        <environment>
+                            <SPRING_OUTPUT_ANSI_ENABLED>ALWAYS</SPRING_OUTPUT_ANSI_ENABLED>
+                        </environment>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                    </container>
+                    <extraDirectories>
+                        <paths>src/main/jib</paths>
+                        <permissions>
+                            <permission>
+                                <file>/entrypoint.sh</file>
+                                <mode>755</mode>
+                            </permission>
+                        </permissions>
+                    </extraDirectories>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-
-
 </project>

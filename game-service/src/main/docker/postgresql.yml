@@ -1,0 +1,10 @@
+version: '2'
+services:
+  card-game-postgresql:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_DB=demo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
